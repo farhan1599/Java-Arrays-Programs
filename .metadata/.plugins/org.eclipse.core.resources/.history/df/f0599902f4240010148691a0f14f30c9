@@ -1,0 +1,39 @@
+package com.practice.arrays;
+
+import java.util.HashSet;
+
+public class UnionOfArray {
+
+	public static void main(String[] args) {
+
+		int[] arr1 = { 3, 4, 7 };
+		int[] arr2 = { 5, 2, 3, 6, 4 };
+
+		findUnion(arr1, arr2);
+	}
+
+	private static void findUnion(int[] arr1, int[] arr2) {
+
+		HashSet<Integer> set = new HashSet<>();
+
+		for (int i=0;i<arr1.length;i++) {
+			set.add(arr1[i]);
+		}
+
+		for (int i=0;i<arr2.length;i++) {
+			set.add(arr2[i]);
+		}
+		int[] arr3 = new int[set.size()];
+
+		int index = 0;
+		for (int n : set) {
+			arr3[index] = n;
+			index++;
+		}
+
+		for (int i = 0; i < arr3.length; i++) {
+			System.out.print(arr3[i] + " ");
+		}
+	}
+
+}

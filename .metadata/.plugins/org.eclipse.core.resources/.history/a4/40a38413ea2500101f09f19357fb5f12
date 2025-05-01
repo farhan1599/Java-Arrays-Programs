@@ -1,0 +1,21 @@
+package com.practice.arrays;
+
+public class ProductOfMatrix {
+
+	/*
+	 * Rule : If the number of cols in the first matrix and the number of rows in
+	 * the second matrix are equal then we can multiply the two matrices.
+	 */
+	public static void main(String[] args) {
+
+		int[][] matrix1 = { { 2, 3 }, { 3, 2 } };
+		int[][] matrix2 = { { 2, 1, 3 }, { 3, 1, 2 } };
+		System.out.println(matrix1.length);
+		multiplyTwoMatrices(matrix1,matrix2);
+	}
+
+	private static void multiplyTwoMatrices(int[][] matrix1, int[][] matrix2) {
+		
+		
+	}
+}

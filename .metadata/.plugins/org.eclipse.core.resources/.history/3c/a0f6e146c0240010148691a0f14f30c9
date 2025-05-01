@@ -1,0 +1,106 @@
+package com.pactice.arrays;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class ThirdLargest {
+
+	public static void main(String[] args) {
+
+		int[] arr = { 23, 23, 23, 45, 32, 67, 54, 66, 78, 98, 67, 34,80 };
+
+		findThirdMax(arr);
+		// ThirdLargest tl = new ThirdLargest();
+		sort(arr);
+	}
+
+	private static int[] sort(int[] arr) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < arr.length - 1; i++) {
+
+			for (int j = i + 1; j < arr.length; j++) {
+
+				if (arr[i] > arr[j]) {
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+
+		}
+		return arr;
+	}
+
+	private static void findThirdMax(int[] arr) {
+
+		System.out.println("Before sorting and removing duplicates  : ");
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(+arr[i] + " ");
+		}
+		
+		
+		int[] sortedArr = sort(arr);
+		System.out.println();
+		
+		System.out.println("after sorting : ");
+		for (int i = 0; i < sortedArr.length; i++) {
+			System.out.print(sortedArr[i] + " ");
+		}
+
+		int i = 0;
+		for (int j = 1; j < sortedArr.length; j++) {
+			if (sortedArr[i] != sortedArr[j]) {
+				i++;
+				sortedArr[i] = sortedArr[j];
+			}
+		}
+		
+		System.out.println();
+
+		System.out.println("after removing duplicates : ");
+		for (  int k = 0; k <= i; k++) {
+			System.out.print(arr[k] + " ");
+		}
+
+		
+
+		
+		System.out.println();
+		System.out.println("Third largest element is : "+arr[arr.length-3]);
+		
+
+		// ThirdLargest tl = new ThirdLargest();
+
+//		int thirdlarge = Integer.MIN_VALUE;
+//
+//		for (int i = 0; i < sort.length; i++) {
+//			if (sort[i] > thirdlarge) {
+//				thirdlarge = sort[i];
+//		}
+//		}
+
+//		int largest = arr[0];
+//		int second_largest = arr[0];
+//		int third_largest = arr[0];
+//
+//		for (int i = 1; i < arr.length; i++) {
+//
+//			if (arr[i] > largest) {
+//
+//				third_largest = second_largest;
+//				second_largest = largest;
+//				largest = arr[i];
+//
+//			} else if (arr[i] != largest && arr[i] > second_largest) {
+//
+//				third_largest = second_largest;
+//				second_largest = arr[i];
+//
+//			} else if (arr[i] != largest && arr[i] != second_largest && arr[i] > third_largest) {
+//				third_largest = arr[i];
+//			}
+//		}
+//		System.out.println("Third largest number is :" + third_largest);
+
+	}
+}
