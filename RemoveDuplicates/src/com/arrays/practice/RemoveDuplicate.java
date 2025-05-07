@@ -19,6 +19,7 @@ public class RemoveDuplicate {
 	 * from the Set object back to another array
 	 */
 	private static void removeDuplicateElementsUsingSet(int[] arr) {
+		
 		System.out.println("\nBefore removing :");
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i] + " ");
