@@ -43,10 +43,10 @@ public class ThirdSmallest {
 		int newLength = i + 1;
 
 		if (newLength >= 3) {
-			System.out.println("\nThird smallest :" + arr[newLength - 3]);
-		} else
-			System.out.println("error");
-	}
+            System.out.println("\nThird smallest: " + arr[2]);
+        } else {
+            System.out.println("\nLess than 3 distinct elements.");
+        }
 
 	// method for sorting
 	private static void sort(int[] arr) {
