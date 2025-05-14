@@ -4,31 +4,23 @@ public class ThirdLargest {
 
 	public static void main(String[] args) {
 
-		int[] arr = { 23, 1, 0, 23, 45, 76, 23, 45};
+		int[] arr = { 23, 1, 0, 23, 45, 76, 23, 45 };
 
-		findThirdMax(arr);
+		//findThirdMax(arr);
+		findThirdLargest(arr);
 
 	}
 
-	/*first sort the array(asc) then remove duplicates from the sorted array,
-	 * then print the lastIndex-3*/
+	/*
+	 * first sort the array(asc) then remove duplicates from the sorted array, then
+	 * print the lastIndex-3
+	 */
 	private static void findThirdMax(int[] arr) {
 
-//		System.out.println("Before sorting and removing duplicates  : ");
-//		for (int i = 0; i < arr.length; i++) {
-//			System.out.print(+arr[i] + " ");
-//		}
-		
-		
-		
-		// sorting the array
-		int[] sortedArr =sort(arr);
-				          
 
-//		System.out.println("\nafter sorting : ");
-//		for (int i = 0; i < sortedArr.length; i++) {
-//			System.out.print(sortedArr[i] + " ");
-//		}
+
+		// sorting the array
+		int[] sortedArr = sort(arr);
 
 		// removing duplicates
 		int i = 0;
@@ -38,13 +30,7 @@ public class ThirdLargest {
 				sortedArr[i] = sortedArr[j];
 			}
 		}
-		// display the elements from index 0 to i
 		
-//		System.out.println("\nafter removing duplicates : ");
-//		for (int k = 0; k <= i; k++) {
-//			System.out.print(sortedArr[k] + " ");
-//		}
-
 		int newLength = i + 1;
 		// Print third largest (which is third last in sorted unique list)
 		if (newLength >= 3) {
@@ -68,6 +54,45 @@ public class ThirdLargest {
 			}
 
 		}
-	    return arr;
+		return arr;
 	}
+
+//find the third largest element in the array in O(N) time complexity
+
+	private static void findThirdLargest(int[] arr) {
+
+		Integer first = null, second = null, third = null;
+
+		for (int num : arr) {
+
+			// Skip duplicates
+			if ((first != null && num == first) || (second != null && num == second)
+					|| (third != null && num == third)) {
+				continue;
+			}
+			
+			
+			if(first == null || num > first) {
+				third = second;
+				second = first;
+				first = num;
+			}
+			else if(second == null || num > second) {
+				third = second;
+				second = num;
+			}
+			else if(third == null || num > third) {
+				third = num;
+			}
+		}
+		
+		if(third != null) {
+			System.out.println("Third largest element is : "+third);
+		}
+		else {
+			System.out.println("Less than 3 distinct element");
+		}
+
+	}
+
 }

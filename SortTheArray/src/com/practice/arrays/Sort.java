@@ -6,8 +6,40 @@ public class Sort {
 
 		int[] arr = { 23, 45, 12, 56, 78,34,56,34};
 
-		sortTheArray(arr);
+		//sortTheArray(arr);
+		findThirdLargest(arr);
 	}
+	
+	
+	 private static void findThirdLargest(int[] arr) {
+	        Integer first = null, second = null, third = null;
+
+	        for (int num : arr) {
+	            // Skip duplicates
+	            if ((first != null && num == first) ||
+	                (second != null && num == second) ||
+	                (third != null && num == third)) {
+	                continue;
+	            }
+
+	            if (first == null || num > first) {
+	                third = second;
+	                second = first;
+	                first = num;
+	            } else if (second == null || num > second) {
+	                third = second;
+	                second = num;
+	            } else if (third == null || num > third) {
+	                third = num;
+	            }
+	        }
+
+	        if (third != null) {
+	            System.out.println("Third largest distinct element is: " + third);
+	        } else {
+	            System.out.println("Less than 3 distinct elements.");
+	        }
+	    }
 
 	private static void sortTheArray(int[] arr) {
 
